@@ -4,61 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pusul AI - Akıllı Kişisel Finans Danışmanı</title>
-    <!-- Google Fonts: Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
-<body>
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="brand">
-                <img src="compass_logo.jpg" alt="Pusul AI Pusula Logosu" class="brand-compass-img">
-                <div class="logo-text">Pusul<span>AI</span></div>
+<body class="dark-theme">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass">
+            <div class="logo-container">
+                <img src="static/compass_logo.jpg" alt="Pusul AI Logo" class="logo-img">
+                <h2 class="logo-text">PusulAI</h2>
             </div>
             
-            <nav class="nav-menu">
-                <a href="#" class="nav-item active" data-tab="dashboard">
-                    <span class="icon">🏠</span>
-                    <span class="label">Portföy Dashboard</span>
-                </a>
-                <a href="#" class="nav-item" data-tab="assets">
-                    <span class="icon">💼</span>
-                    <span class="label">Varlıklar & İşlemler</span>
-                </a>
-                <a href="#" class="nav-item" data-tab="rebalance">
-                    <span class="icon">⚡</span>
-                    <span class="label">Rebalancing & Risk</span>
-                </a>
-                <a href="#" class="nav-item" data-tab="rag">
-                    <span class="icon">📰</span>
-                    <span class="label">RAG Piyasa Araştırması</span>
-                </a>
+            <nav class="sidebar-nav">
+                <div class="nav-item active" data-target="dashboard">
+                    <span class="nav-icon">🏠</span> Portföy Dashboard
+                </div>
+                <div class="nav-item" data-target="assets">
+                    <span class="nav-icon">💼</span> Varlıklar & İşlemler
+                </div>
+                <div class="nav-item" data-target="rebalance">
+                    <span class="nav-icon">⚡</span> Rebalancing & Risk
+                </div>
+                <div class="nav-item" data-target="rag">
+                    <span class="nav-icon">📰</span> RAG Piyasa Araştırması
+                </div>
             </nav>
 
-            <div class="user-card">
+            <div class="user-profile">
                 <div class="avatar">MY</div>
                 <div class="user-info">
                     <div class="user-name">Mehmet Yılmaz</div>
-                    <div class="user-badge">Dengeli Risk Profili</div>
+                    <div class="user-status">Dengeli Risk Profili</div>
                 </div>
             </div>
         </aside>
 
-        <!-- Main Content Area -->
+        <!-- Main Content -->
         <main class="main-content">
-            <!-- Header -->
-            <header class="top-header">
-                <div class="header-title">
+            <header class="top-header glass">
+                <div class="header-titles">
                     <h1>Pusul AI - Akıllı Kişisel Finans Danışmanı</h1>
-                    <p class="subtitle">Çoklu Yapay Zeka Ajanı & RAG Bağlamlı Portföy Yönetimi</p>
+                    <p>Çoklu Yapay Zeka Ajanı & RAG Bağlamlı Portföy Yönetimi</p>
                 </div>
-                
-                <div class="market-pills">
+                <div class="market-ticker">
                     <div class="pill green">THYAO <span>310.50 TL (+2.45%)</span></div>
                     <div class="pill green">GRAM ALTIN <span>2.540 TL (+0.75%)</span></div>
                     <div class="pill neutral">USD/TRY <span>33.45 TL (+0.12%)</span></div>
@@ -66,7 +58,6 @@
                 </div>
             </header>
 
-            <!-- Key Metrics Grid -->
             <section class="metrics-grid">
                 <div class="metric-card glass">
                     <div class="card-header">
@@ -85,12 +76,10 @@
                         <span>Risk Skoru</span>
                         <span class="card-icon">🛡️</span>
                     </div>
-                    <div class="metric-value" id="riskScore">55 / 100</div>
-                    <div class="metric-change warning">
+                    <div class="metric-value">55 / 100</div>
+                    <div class="metric-change warning warning-box">
                         <span>⚠️ THYAO Konsantrasyon Riski (%21.7)</span>
-                        <button id="btnQuickRebalance" class="btn-action-risk" style="margin-top:6px;">
-                            <span>⚡ Dengeleme Önerisi Al</span>
-                        </button>
+                        <button class="action-btn small-btn" data-action="rebalance">⚡ Dengeleme Önerisi Al</button>
                     </div>
                 </div>
 
@@ -100,7 +89,7 @@
                         <span class="card-icon">🧩</span>
                     </div>
                     <div class="metric-value">4 Varlık Sınıfı</div>
-                    <div class="metric-change info">
+                    <div class="metric-change neutral">
                         <span>Hisse, Altın, Döviz, Tahvil</span>
                         <span class="subtext">7 Aktif Enstrüman</span>
                     </div>
@@ -111,8 +100,8 @@
                         <span>Piyasa Duyarlılığı</span>
                         <span class="card-icon">📰</span>
                     </div>
-                    <div class="metric-value text-green">Pozitif Görünüm</div>
-                    <div class="metric-change info">
+                    <div class="metric-value">Pozitif Görünüm</div>
+                    <div class="metric-change positive">
                         <span>3. Çeyrek Bilanço Sezonu</span>
                         <span class="subtext">RAG Doküman Sayısı: 4</span>
                     </div>
@@ -120,180 +109,63 @@
             </section>
 
             <!-- Charts Section -->
-            <section class="charts-grid">
-                <!-- Doughnut Chart (Asset Allocation) -->
-                <div class="chart-card glass">
+            <section class="charts-section">
+                <div class="chart-container glass">
                     <div class="chart-header">
                         <h3>Varlık Dağılımı (% Oranları)</h3>
                         <span class="badge">Anlık SQL Verisi</span>
                     </div>
-                    <div class="chart-container">
+                    <div class="canvas-wrapper doughnut-wrapper">
                         <canvas id="allocationChart"></canvas>
                     </div>
                 </div>
 
-                <!-- Line Chart (Performance Trend) -->
-                <div class="chart-card glass">
+                <div class="chart-container glass">
                     <div class="chart-header">
                         <h3>Portföy Performans Trendi (30 Gün)</h3>
-                        <div class="actions">
-                            <button class="btn-time active">1A</button>
-                            <button class="btn-time">3A</button>
-                            <button class="btn-time">1Y</button>
+                        <div class="chart-filters">
+                            <button class="filter-btn active">1A</button>
+                            <button class="filter-btn">3A</button>
+                            <button class="filter-btn">1Y</button>
                         </div>
                     </div>
-                    <div class="chart-container">
+                    <div class="canvas-wrapper">
                         <canvas id="performanceChart"></canvas>
                     </div>
                 </div>
             </section>
 
-            <!-- Dynamic Action Buttons & RAG Chatbot Grid -->
-            <section class="advisor-section">
-                <div class="action-buttons-card glass">
-                    <div class="card-title">
-                        <h2>🤖 Akıllı Ajan İşlemleri</h2>
-                        <p>Tek tıkla risk analizi yapın ve otomatik yeniden dengeleme stratejisi üretin.</p>
+            <!-- Chatbot Section -->
+            <section class="chat-section glass">
+                <div class="chat-header">
+                    <div class="chat-title">
+                        <span class="pulse-dot"></span>
+                        <h3>Pusul AI Danışman</h3>
                     </div>
-                    
-                    <div class="button-group">
-                        <button id="btnRebalance" class="action-btn primary">
-                            <span class="btn-icon">⚡</span>
-                            <div class="btn-text">
-                                <span class="btn-title">Portföyü Yeniden Dengele</span>
-                                <span class="btn-sub">Hedef varlık dağılımı ile kıyasla & alım-satım önerisi al</span>
-                            </div>
-                        </button>
-
-                        <button id="btnFullReport" class="action-btn secondary">
-                            <span class="btn-icon">📋</span>
-                            <div class="btn-text">
-                                <span class="btn-title">Detaylı Rapor Oluştur</span>
-                                <span class="btn-sub">3 AI ajanının kapsamlı analiz sentezini al</span>
-                            </div>
-                        </button>
+                    <div class="chat-actions">
+                        <button class="action-btn" data-action="report">📑 Detaylı Rapor Oluştur</button>
                     </div>
-
-                    <!-- Quick Prompt Suggestions -->
-                    <div class="quick-prompts">
-                        <span class="prompt-label">Hızlı Sorular:</span>
-                        <button class="chip-prompt" data-query="THYAO şirketinin son çeyrek kârı portföyümü nasıl etkiler?">✈️ THYAO Kâr Etkisi</button>
-                        <button class="chip-prompt" data-query="Dolar kurundaki yükseliş risk seviyemi nasıl değiştirdi?">💵 Döviz & Risk Analizi</button>
-                        <button class="chip-prompt" data-query="Altın yatırımı oranım ideal seviyede mi?">Gram Altın Tahmini</button>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message system">
+                        <div class="message-content">
+                            👋 Merhaba Mehmet Bey. Pusul AI Çoklu-Ajan sistemine hoş geldiniz. Portföyünüzün son durumunu incelemek, risk analizi yaptırmak veya güncel piyasa haberlerini (RAG) sormak için buradayım. Size nasıl yardımcı olabilirim?
+                        </div>
                     </div>
                 </div>
 
-                <!-- Chatbot Interface Window -->
-                <div class="chat-card glass">
-                    <div class="chat-header">
-                        <div class="agent-status">
-                            <div class="status-dot online"></div>
-                            <div>
-                                <span class="agent-title">Pusul AI Akıllı Danışman Sohbeti</span>
-                                <span class="agent-sub">Portföy Ajanı + Risk Ajanı + Piyasa RAG Ajanı</span>
-                            </div>
-                        </div>
-                        <div class="stream-badge" id="streamBadge" style="display:none;">🔴 CANLI AKIŞ</div>
-                    </div>
-
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="message system-msg">
-                            <div class="msg-avatar">🤖</div>
-                            <div class="msg-content">
-                                <strong>Merhaba Mehmet Bey!</strong> Ben <strong>Pusul AI</strong> Akıllı Kişisel Finans Danışmanınız. 
-                                Portföyünüzdeki <strong>₺501,315.00</strong> değerindeki varlıkları, risk profili kriterlerinizi ve güncel bilanço haberlerini analiz etmek için hazırım. Bir soru sorun veya yukarıdaki öneri butonlarını kullanın!
-                            </div>
-                        </div>
-                    </div>
-
-                    <form id="chatForm" class="chat-input-area">
-                        <input type="text" id="userInput" placeholder="Finansal sorunuzu buraya yazın (Örn: THYAO kârı portföyümü nasıl etkiler?)" required autocomplete="off">
-                        <button type="submit" id="sendBtn" class="send-btn">
-                            <span>Gönder</span>
-                            <span class="send-icon">➔</span>
-                        </button>
-                    </form>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Yapay zeka ajanıma bir soru sorun (Örn: THYAO kârı nasıl?)...">
+                    <button id="send-btn" class="primary-btn">
+                        <span>Gönder</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
                 </div>
             </section>
         </main>
     </div>
-
-    <!-- Assets & Transactions Modal -->
-    <div id="assetsModal" class="modal-overlay" style="display: none;">
-        <div class="modal-card glass">
-            <div class="modal-header">
-                <h2>💼 Varlıklar & Detaylı İşlem Geçmişi</h2>
-                <button id="closeAssetsModal" class="close-btn">✖</button>
-            </div>
-            <div class="modal-body">
-                <table class="assets-table">
-                    <thead>
-                        <tr>
-                            <th>Sembol</th>
-                            <th>Varlık Adı</th>
-                            <th>Kategori</th>
-                            <th>Miktar</th>
-                            <th>Ort. Alış</th>
-                            <th>Güncel Fiyat</th>
-                            <th>Toplam Değer</th>
-                            <th>Kâr / Zarar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="assetsTableBody">
-                        <!-- Dynamic content filled by app.js -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Rebalancing & Risk Modal -->
-    <div id="rebalanceModal" class="modal-overlay" style="display: none;">
-        <div class="modal-card glass">
-            <div class="modal-header">
-                <h2>⚡ Risk Analizi & Portföy Yeniden Dengeleme (Rebalancing)</h2>
-                <button id="closeRebalanceModal" class="close-btn">✖</button>
-            </div>
-            <div class="modal-body" id="rebalanceModalBody">
-                <!-- Filled dynamically by app.js -->
-            </div>
-        </div>
-    </div>
-
-    <!-- RAG Market Research Modal -->
-    <div id="ragModal" class="modal-overlay" style="display: none;">
-        <div class="modal-card glass">
-            <div class="modal-header">
-                <h2>📰 RAG Finansal Haber & Bilanço İndeksi</h2>
-                <button id="closeRagModal" class="close-btn">✖</button>
-            </div>
-            <div class="modal-body" id="ragModalBody">
-                <div class="rag-docs-grid">
-                    <div class="doc-card">
-                        <div class="doc-badge">Bilanço Raporu</div>
-                        <h3>THYAO 2026 3. Çeyrek Finansal Raporu</h3>
-                        <p>Türk Hava Yolları 24.5 Milyar TL net kâr açıkladı. Yolcu sayısı %18 artarak 25.4 milyona ulaştı. 12 aylık hedef fiyat: 380 TL.</p>
-                    </div>
-                    <div class="doc-card">
-                        <div class="doc-badge">Banka Haberi</div>
-                        <h3>Garanti BBVA 3. Çeyrek Bilanço Değerlendirmesi</h3>
-                        <p>Net kâr 18.2 Milyar TL, Özsermaye Kârlılığı %34.2. Sermaye yeterlilik rasyosu %18.2 ile güçlü konumda.</p>
-                    </div>
-                    <div class="doc-card">
-                        <div class="doc-badge">Emtia Analizi</div>
-                        <h3>Küresel Altın ve Emtia Piyasası Raporu</h3>
-                        <p>Ons Altın 2.430 USD, Gram Altın 2.540 TL. Merkez bankaları fiziki altın alımlarını 3. çeyrekte de sürdürdü.</p>
-                    </div>
-                    <div class="doc-card">
-                        <div class="doc-badge">Makro Rapor</div>
-                        <h3>Fed Faiz Kararı ve Dolar/TL Analizi</h3>
-                        <p>Fed faizleri sabit tutarak 25 baz puan indirim sinyali verdi. DXY 102.5 seviyesine çekildi, Dolar/TL 33.45 seviyesinde dengeli.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
+    
+    <script src="static/app.js"></script>
 </body>
 </html>
