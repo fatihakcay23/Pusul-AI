@@ -98,6 +98,8 @@ class APIRequestHandler(BaseHTTPRequestHandler):
             mime_type = "text/html"
         else:
             rel_path = path.lstrip("/")
+            if rel_path.startswith("static/"):
+                rel_path = rel_path.replace("static/", "", 1)
             file_path = os.path.join(STATIC_DIR, rel_path)
             if rel_path.endswith(".css"):
                 mime_type = "text/css"
